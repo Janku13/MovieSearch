@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "install-server": "npm install --prefix tv_server",
+    "install-client": "npm install --prefix tv_client",
+    "install": "npm run install-server && npm run install-client",
+    "server": "npm run watch --prefix tv_server",
+    "client": "npm start --prefix tv_client",
+    "watch": "npm run server & npm run client",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "deploy": "concurrently \"npm run build --prefix tv_client\" \"npm start --prefix tv_server\"",
+    "deploy-cluster": "concurrently \"npm run build --prefix client\" \"npm run cluster --prefix server\""
+  },
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
